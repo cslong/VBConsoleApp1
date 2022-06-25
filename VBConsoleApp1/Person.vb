@@ -11,6 +11,8 @@ Namespace VbConsoleApp1
         Public Property Age As Integer
         Private Property Hobby As String
 
+        Public Shared _next As String = Nothing
+
         Public Sub New(hobby As String)
             Hobby = hobby
             Console.WriteLine("This is a constructor")
@@ -22,11 +24,13 @@ Namespace VbConsoleApp1
 
         Public Function GetName() As String
             Console.WriteLine("Step in a function")
+            Dim _next As String = ""
             Return Name
         End Function
 
         Public Async Function GetNameAsync()  As Task(of String)
             Await Task.Delay(1)
+            Console.WriteLine(Me.Name)
             Return "Boo"
         End Function
 
